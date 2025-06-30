@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.CustomApp.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.CustomApp.Application.Marker">
+            <summary>
+            Represents a marker used to identify mediator handlers in the DI.
+            </summary>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentByIdQuery">
+            <summary>
+            Represents a query to retrieve a student by their unique identifier.
+            </summary>
+            <remarks>This query is used to request information about a specific student based on their ID. It is typically
+            handled by a mediator or query handler that processes the request and returns the corresponding <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse"/>.</remarks>
+            <param name="Id">The unique identifier of the student to retrieve. Must be a positive integer.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentByIdQuery.#ctor(System.Int32)">
+            <summary>
+            Represents a query to retrieve a student by their unique identifier.
+            </summary>
+            <remarks>This query is used to request information about a specific student based on their ID. It is typically
+            handled by a mediator or query handler that processes the request and returns the corresponding <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse"/>.</remarks>
+            <param name="Id">The unique identifier of the student to retrieve. Must be a positive integer.</param>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentByIdQuery.Id">
+            <summary>The unique identifier of the student to retrieve. Must be a positive integer.</summary>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryHandler">
+            <summary>
+            Handles the retrieval of a student's information by their unique identifier.
+            </summary>
+            <remarks>This class processes a <see cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQuery"/> request and returns a <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse"/> containing the student's name and subject. It uses an <see
+            cref="T:Arc.CustomApp.Infra.IReadOnlyRepo"/> to fetch the student data.</remarks>
+            <param name="repo">A read only repo.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentByIdQueryHandler.#ctor(Arc.CustomApp.Infra.IReadOnlyRepo)">
+            <summary>
+            Handles the retrieval of a student's information by their unique identifier.
+            </summary>
+            <remarks>This class processes a <see cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQuery"/> request and returns a <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse"/> containing the student's name and subject. It uses an <see
+            cref="T:Arc.CustomApp.Infra.IReadOnlyRepo"/> to fetch the student data.</remarks>
+            <param name="repo">A read only repo.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentByIdQueryHandler.Handle(Arc.CustomApp.Application.Queries.GetStudentByIdQuery,System.Threading.CancellationToken)">
+            <summary>
+            Handles the query to retrieve a student's details by their unique identifier.
+            </summary>
+            <remarks>This method retrieves the student's details from the repository based on the provided
+            identifier. Ensure that the <paramref name="request"/> contains a valid student ID.</remarks>
+            <param name="request">The query containing the student's unique identifier.</param>
+            <param name="cancellationToken">A token that can be used to cancel the operation before it completes.</param>
+            <returns>A <see cref="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse"/> containing the student's name and subject.</returns>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse">
+            <summary>
+            Represents the response for a query to retrieve a student's details by their ID.
+            </summary>
+            <remarks>This record encapsulates the student's name and subject as part of the query result.</remarks>
+            <param name="Name">The name of the student.</param>
+            <param name="Subject">The subject associated with the student.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse.#ctor(System.String,System.String)">
+            <summary>
+            Represents the response for a query to retrieve a student's details by their ID.
+            </summary>
+            <remarks>This record encapsulates the student's name and subject as part of the query result.</remarks>
+            <param name="Name">The name of the student.</param>
+            <param name="Subject">The subject associated with the student.</param>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse.Name">
+            <summary>The name of the student.</summary>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentByIdQueryResponse.Subject">
+            <summary>The subject associated with the student.</summary>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQuery">
+            <summary>
+            Represents a query to retrieve a list of students.
+            </summary>
+            <remarks>This query is used to request student data.</remarks>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQueryHandler">
+            <summary>
+            Handles the query to retrieve a list of students and their associated subjects.
+            </summary>
+            <remarks>This class is responsible for processing the <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQuery"/> and returning a  <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse"/> containing the requested student data. It interacts  with the repository to fetch
+            student information and maps the data into the appropriate response format.</remarks>
+            <param name="repo">A read only repo.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentsQueryHandler.#ctor(Arc.CustomApp.Infra.IReadOnlyRepo)">
+            <summary>
+            Handles the query to retrieve a list of students and their associated subjects.
+            </summary>
+            <remarks>This class is responsible for processing the <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQuery"/> and returning a  <see
+            cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse"/> containing the requested student data. It interacts  with the repository to fetch
+            student information and maps the data into the appropriate response format.</remarks>
+            <param name="repo">A read only repo.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentsQueryHandler.Handle(Arc.CustomApp.Application.Queries.GetStudentsQuery,System.Threading.CancellationToken)">
+            <summary>
+            Handles the query to retrieve a list of students and their associated subjects.
+            </summary>
+            <remarks>This method retrieves all students from the repository and maps their data 
+            into a response format.</remarks>
+            <param name="request">The query containing the parameters for retrieving students.</param>
+            <param name="cancellationToken">A token that can be used to cancel the operation before 
+            completion.</param>
+            <returns>A <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse"/> containing the list of students and 
+            their subjects.</returns>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse">
+            <summary>
+            Represents the response for a query to retrieve student information.
+            </summary>
+            <remarks>This record encapsulates the name of a student and their associated subject. It is typically 
+            used as part of a query result in scenarios where student data needs to be retrieved.</remarks>
+            <param name="Name">Name of the student.</param>
+            <param name="Subject">Subject of the student.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse.#ctor(System.String,System.String)">
+            <summary>
+            Represents the response for a query to retrieve student information.
+            </summary>
+            <remarks>This record encapsulates the name of a student and their associated subject. It is typically 
+            used as part of a query result in scenarios where student data needs to be retrieved.</remarks>
+            <param name="Name">Name of the student.</param>
+            <param name="Subject">Subject of the student.</param>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse.Name">
+            <summary>Name of the student.</summary>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse.Subject">
+            <summary>Subject of the student.</summary>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse">
+            <summary>
+            Represents the response for a query to retrieve a collection of students.
+            </summary>
+            <remarks>This record encapsulates the result of a query operation, providing a collection of student 
+            details. Each student is represented by an instance of <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse"/>.</remarks>
+            <param name="Students">A collection of <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse"/> objects representing the students 
+            retrieved by the query.</param>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse.#ctor(System.Collections.Generic.IEnumerable{Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse})">
+            <summary>
+            Represents the response for a query to retrieve a collection of students.
+            </summary>
+            <remarks>This record encapsulates the result of a query operation, providing a collection of student 
+            details. Each student is represented by an instance of <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse"/>.</remarks>
+            <param name="Students">A collection of <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse"/> objects representing the students 
+            retrieved by the query.</param>
+        </member>
+        <member name="P:Arc.CustomApp.Application.Queries.GetStudentsQueryResponse.Students">
+            <summary>A collection of <see cref="T:Arc.CustomApp.Application.Queries.GetStudentsQueryStudentResponse"/> objects representing the students 
+            retrieved by the query.</summary>
+        </member>
+    </members>
+</doc>

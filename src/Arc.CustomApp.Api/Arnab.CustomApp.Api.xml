@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Arc.CustomApp.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Arc.CustomApp.Api.Endpoints.GetStudentByIdEndpoint">
+            <summary>
+            Provides functionality to map the "get-student-by-id" endpoint, which retrieves student details by their unique
+            identifier.
+            </summary>
+            <remarks>This endpoint is designed to handle HTTP GET requests to the "get-student-by-id" route. It processes
+            the request by querying for a student based on the provided ID and returns either the student's details or an error
+            if the student is not found.</remarks>
+        </member>
+        <member name="M:Arc.CustomApp.Api.Endpoints.GetStudentByIdEndpoint.MapGetStudentByIdEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Maps an HTTP GET endpoint to retrieve a student by their unique identifier.
+            </summary>
+            <remarks>The endpoint is registered at the route "get-student-by-id". It expects a query parameter 
+            specifying the student's ID.</remarks>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder"/> used to configure the endpoint.</param>
+        </member>
+        <member name="T:Arc.CustomApp.Api.Endpoints.GetStudentsEndpoint">
+            <summary>
+            Provides functionality to map the "get-students" endpoint to retrieve student data.
+            </summary>
+            <remarks>This class defines the "get-students" endpoint, which handles HTTP GET requests to fetch a list of
+            students. The endpoint returns a list of students if available, or a "Not Found" response if no students are
+            found.</remarks>
+        </member>
+        <member name="M:Arc.CustomApp.Api.Endpoints.GetStudentsEndpoint.MapGetStudentEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Maps the "get-students" endpoint to retrieve students data.
+            </summary>
+            <remarks>This method registers a GET endpoint at the route "get-students". The endpoint is designed to
+            handle requests for retrieving students information.</remarks>
+            <param name="builder">The <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder"/> used to configure the endpoint.</param>
+        </member>
+    </members>
+</doc>
