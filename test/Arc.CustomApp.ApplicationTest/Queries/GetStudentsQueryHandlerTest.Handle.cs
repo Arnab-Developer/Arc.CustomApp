@@ -10,13 +10,13 @@ public partial class GetStudentsQueryHandlerTest
         // Arrange
         _repoMock
             .Setup(m => m.GetStudents())
-            .ReturnsAsync(new List<Student>()
-            {
+            .ReturnsAsync(
+            [
                 new(1, "S1", "Sub1"),
                 new(2, "S2", "Sub2"),
                 new(3, "S3", "Sub3"),
                 new(4, "S4", "Sub4")
-            });
+            ]);
 
         var expectedStudents = new List<GetStudentsQueryStudentResponse>()
         {
