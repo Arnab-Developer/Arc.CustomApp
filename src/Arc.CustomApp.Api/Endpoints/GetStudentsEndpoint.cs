@@ -1,19 +1,9 @@
 ﻿namespace Arc.CustomApp.Api.Endpoints;
 
-/// <summary>
-/// Provides functionality to map the "get-students" endpoint to retrieve student data.
-/// </summary>
-/// <remarks>This class defines the "get-students" endpoint, which handles HTTP GET requests to fetch a list of
-/// students. The endpoint returns a list of students if available, or a "Not Found" response if no students are
-/// found.</remarks>
 internal static class GetStudentsEndpoint
 {
-    /// <summary>
-    /// Maps the "get-students" endpoint to retrieve students data.
-    /// </summary>
-    /// <remarks>This method registers a GET endpoint at the route "get-students". The endpoint is designed to
-    /// handle requests for retrieving students information.</remarks>
-    /// <param name="builder">The <see cref="IEndpointRouteBuilder"/> used to configure the endpoint.</param>
+    /// <summary>Maps the "get-students" endpoint to retrieve students data.</summary>
+    /// <param name="builder">The endpoint builder to configure the endpoint.</param>
     public static void MapGetStudentEndpoint(this IEndpointRouteBuilder builder) =>
         builder.MapGet("get-students", Handle);
 
