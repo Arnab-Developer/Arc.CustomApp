@@ -29,7 +29,7 @@ public class GetStudentsQueryHandler(IReadOnlyRepo repo)
     }
 }
 
-/// <summary>A query response for the student data.</summary>
+/// <summary>A query response for the students data.</summary>
 /// <param name="Name">Name of the student.</param>
 /// <param name="Subject">Subject of the student.</param>
 public record GetStudentsQueryStudentResponse(string Name, string Subject);
