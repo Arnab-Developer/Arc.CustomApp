@@ -1,7 +1,4 @@
-﻿using FluentValidation;
-using MediatR;
-
-namespace Arc.CustomApp.ApplicationTest.Behaviors;
+﻿namespace Arc.CustomApp.ApplicationTest.Behaviors;
 
 public partial class ValidationBehaviorTest
 {
