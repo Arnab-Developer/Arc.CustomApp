@@ -4,6 +4,7 @@
 /// in the mediator pipeline.</summary>
 /// <typeparam name="TRequest">The mediator query or command.</typeparam>
 /// <typeparam name="TResponse">The response of the mediator query or command.</typeparam>
+/// <param name="validators">The validators with which the validation needs to be performed.</param>
 public class ValidationBehavior<TRequest, TResponse>(IEnumerable<IValidator<TRequest>> validators) :
     IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 {

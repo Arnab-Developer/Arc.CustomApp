@@ -9,12 +9,14 @@
             in the mediator pipeline.</summary>
             <typeparam name="TRequest">The mediator query or command.</typeparam>
             <typeparam name="TResponse">The response of the mediator query or command.</typeparam>
+            <param name="validators">The validators with which the validation needs to be performed.</param>
         </member>
         <member name="M:Arc.CustomApp.Application.Behaviors.ValidationBehavior`2.#ctor(System.Collections.Generic.IEnumerable{FluentValidation.IValidator{`0}})">
             <summary>A validation behavior which validates the mediator query or commands
             in the mediator pipeline.</summary>
             <typeparam name="TRequest">The mediator query or command.</typeparam>
             <typeparam name="TResponse">The response of the mediator query or command.</typeparam>
+            <param name="validators">The validators with which the validation needs to be performed.</param>
         </member>
         <member name="M:Arc.CustomApp.Application.Behaviors.ValidationBehavior`2.Handle(`0,MediatR.RequestHandlerDelegate{`1},System.Threading.CancellationToken)">
             <summary>Validates the mediator query or commands.</summary>
@@ -37,6 +39,12 @@
         </member>
         <member name="P:Arc.CustomApp.Application.Queries.GetStudentByIdQuery.Id">
             <summary>The id of the student.</summary>
+        </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryValidator">
+            <summary>Validate the get student by id query.</summary>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentByIdQueryValidator.#ctor">
+            <summary>Creates a new instance of get student by id query validator.</summary>
         </member>
         <member name="T:Arc.CustomApp.Application.Queries.GetStudentByIdQueryHandler">
             <summary>A handler of the query which returns the student data by id.</summary>
