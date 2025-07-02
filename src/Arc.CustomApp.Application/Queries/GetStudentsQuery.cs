@@ -26,7 +26,7 @@ public class GetStudentsQueryHandler(IReadOnlyRepo repo)
         GetStudentsQuery request,
         CancellationToken cancellationToken)
     {
-        var students = await _repo.GetStudents();
+        var students = await _repo.GetStudents().ConfigureAwait(false);
 
         var studentResponses = students.Select(s =>
             new GetStudentsQueryStudentResponse(s.Name, s.Subject));

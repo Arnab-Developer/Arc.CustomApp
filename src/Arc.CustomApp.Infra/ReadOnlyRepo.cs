@@ -20,7 +20,7 @@ public class ReadOnlyRepo : IReadOnlyRepo
     /// <returns>A task containing a collection of students data.</returns>
     public async Task<IEnumerable<Student>> GetStudents()
     {
-        await Task.Delay(1000);
+        await Task.Delay(1000).ConfigureAwait(false);
 
         var students = new List<Student>()
         {
@@ -38,7 +38,7 @@ public class ReadOnlyRepo : IReadOnlyRepo
     /// <returns>A task containing a student data.</returns>
     public async Task<Student> GetStudentById(int id)
     {
-        await Task.Delay(1000);
+        await Task.Delay(1000).ConfigureAwait(false);
         var student = new Student(id, $"{id} s3", "Sub3");
         return student;
     }
