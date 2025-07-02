@@ -5,22 +5,28 @@ public interface IReadOnlyRepo
 {
     /// <summary>Get students data.</summary>
     /// <returns>A task containing a collection of students data.</returns>
-    public Task<IEnumerable<Student>> GetStudents();
+    /// <param name="cancellationToken">A token that can be used to cancel the 
+    /// operation before completion.</param>
+    public Task<IEnumerable<Student>> GetStudents(CancellationToken cancellationToken);
 
     /// <summary>Get student data by id.</summary>
     /// <param name="id">The id of the student.</param>
+    /// <param name="cancellationToken">A token that can be used to cancel the 
+    /// operation before completion.</param>
     /// <returns>A task containing a student data.</returns>
-    public Task<Student> GetStudentById(int id);
+    public Task<Student> GetStudentById(int id, CancellationToken cancellationToken);
 }
 
 /// <summary>A read only repo which returns students data for testing.</summary>
 public class ReadOnlyRepo : IReadOnlyRepo
 {
     /// <summary>Get students data for testing.</summary>
+    /// <param name="cancellationToken">A token that can be used to cancel the 
+    /// operation before completion.</param>
     /// <returns>A task containing a collection of students data.</returns>
-    public async Task<IEnumerable<Student>> GetStudents()
+    public async Task<IEnumerable<Student>> GetStudents(CancellationToken cancellationToken)
     {
-        await Task.Delay(1000).ConfigureAwait(false);
+        await Task.Delay(1000, cancellationToken).ConfigureAwait(false);
 
         var students = new List<Student>()
         {
@@ -35,10 +41,12 @@ public class ReadOnlyRepo : IReadOnlyRepo
 
     /// <summary>Get student data by id for testing.</summary>
     /// <param name="id">The id of the student.</param>
+    /// <param name="cancellationToken">A token that can be used to cancel the 
+    /// operation before completion.</param>
     /// <returns>A task containing a student data.</returns>
-    public async Task<Student> GetStudentById(int id)
+    public async Task<Student> GetStudentById(int id, CancellationToken cancellationToken)
     {
-        await Task.Delay(1000).ConfigureAwait(false);
+        await Task.Delay(1000, cancellationToken).ConfigureAwait(false);
         var student = new Student(id, $"{id} s3", "Sub3");
         return student;
     }
