@@ -7,25 +7,33 @@
         <member name="T:Arc.CustomApp.Infra.IReadOnlyRepo">
             <summary>A read only repo which returns students data.</summary>
         </member>
-        <member name="M:Arc.CustomApp.Infra.IReadOnlyRepo.GetStudents">
+        <member name="M:Arc.CustomApp.Infra.IReadOnlyRepo.GetStudents(System.Threading.CancellationToken)">
             <summary>Get students data.</summary>
             <returns>A task containing a collection of students data.</returns>
+            <param name="cancellationToken">A token that can be used to cancel the 
+            operation before completion.</param>
         </member>
-        <member name="M:Arc.CustomApp.Infra.IReadOnlyRepo.GetStudentById(System.Int32)">
+        <member name="M:Arc.CustomApp.Infra.IReadOnlyRepo.GetStudentById(System.Int32,System.Threading.CancellationToken)">
             <summary>Get student data by id.</summary>
             <param name="id">The id of the student.</param>
+            <param name="cancellationToken">A token that can be used to cancel the 
+            operation before completion.</param>
             <returns>A task containing a student data.</returns>
         </member>
         <member name="T:Arc.CustomApp.Infra.ReadOnlyRepo">
             <summary>A read only repo which returns students data for testing.</summary>
         </member>
-        <member name="M:Arc.CustomApp.Infra.ReadOnlyRepo.GetStudents">
+        <member name="M:Arc.CustomApp.Infra.ReadOnlyRepo.GetStudents(System.Threading.CancellationToken)">
             <summary>Get students data for testing.</summary>
+            <param name="cancellationToken">A token that can be used to cancel the 
+            operation before completion.</param>
             <returns>A task containing a collection of students data.</returns>
         </member>
-        <member name="M:Arc.CustomApp.Infra.ReadOnlyRepo.GetStudentById(System.Int32)">
+        <member name="M:Arc.CustomApp.Infra.ReadOnlyRepo.GetStudentById(System.Int32,System.Threading.CancellationToken)">
             <summary>Get student data by id for testing.</summary>
             <param name="id">The id of the student.</param>
+            <param name="cancellationToken">A token that can be used to cancel the 
+            operation before completion.</param>
             <returns>A task containing a student data.</returns>
         </member>
         <member name="T:Arc.CustomApp.Infra.Student">

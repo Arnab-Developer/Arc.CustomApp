@@ -9,7 +9,7 @@ public partial class GetStudentByIdQueryHandlerTest
     {
         // Arrange
         _repoMock
-            .Setup(m => m.GetStudentById(_studentId))
+            .Setup(m => m.GetStudentById(_studentId, _cancellationToken))
             .ReturnsAsync(new Student(1, "s3", "Sub3"));
 
         var expectedResponse = new GetStudentByIdQueryResponse("s3", "Sub3");
@@ -20,7 +20,7 @@ public partial class GetStudentByIdQueryHandlerTest
         // Assert
         actualResponse.ShouldBe(expectedResponse);
 
-        _repoMock.Verify(m => m.GetStudentById(_studentId), Times.Once());
+        _repoMock.Verify(m => m.GetStudentById(_studentId, _cancellationToken), Times.Once());
         _repoMock.VerifyNoOtherCalls();
     }
 
@@ -29,7 +29,7 @@ public partial class GetStudentByIdQueryHandlerTest
     {
         // Arrange
         _repoMock
-            .Setup(m => m.GetStudentById(_studentId))
+            .Setup(m => m.GetStudentById(_studentId, _cancellationToken))
             .ThrowsAsync(new Exception("Data not found"));
 
         // Act

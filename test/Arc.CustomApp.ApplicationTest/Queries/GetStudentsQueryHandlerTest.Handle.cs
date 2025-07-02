@@ -7,7 +7,7 @@ public partial class GetStudentsQueryHandlerTest
     {
         // Arrange
         _repoMock
-            .Setup(m => m.GetStudents())
+            .Setup(m => m.GetStudents(_cancellationToken))
             .ReturnsAsync(
             [
                 new(1, "S1", "Sub1"),
@@ -33,7 +33,7 @@ public partial class GetStudentsQueryHandlerTest
         actualResponse.Students.Count().ShouldBe(4);
         actualResponse.Students.ShouldBe(expectedResponse.Students);
 
-        _repoMock.Verify(m => m.GetStudents(), Times.Once());
+        _repoMock.Verify(m => m.GetStudents(_cancellationToken), Times.Once());
         _repoMock.VerifyNoOtherCalls();
     }
 
@@ -42,7 +42,7 @@ public partial class GetStudentsQueryHandlerTest
     {
         // Arrange
         _repoMock
-            .Setup(m => m.GetStudents())
+            .Setup(m => m.GetStudents(_cancellationToken))
             .ThrowsAsync(new Exception("Data not found"));
 
         // Act
