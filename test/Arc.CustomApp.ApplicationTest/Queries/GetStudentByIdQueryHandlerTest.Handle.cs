@@ -1,6 +1,4 @@
-﻿using Arc.CustomApp.Infra;
-
-namespace Arc.CustomApp.ApplicationTest.Queries;
+﻿namespace Arc.CustomApp.ApplicationTest.Queries;
 
 public partial class GetStudentByIdQueryHandlerTest
 {
