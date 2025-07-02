@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
 builder.Services.AddTransient<IReadOnlyRepo, ReadOnlyRepo>();
+
 builder.Services.AddTransient<IValidator<GetStudentByIdQuery>, GetStudentByIdQueryValidator>();
+builder.Services.AddTransient<IValidator<GetStudentsQuery>, GetStudentsQueryValidator>();
 
 builder.Services.AddMediatR(cfg =>
 {

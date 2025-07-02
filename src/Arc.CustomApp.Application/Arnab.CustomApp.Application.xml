@@ -80,6 +80,12 @@
         <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQuery">
             <summary>A query to get the students data.</summary>
         </member>
+        <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQueryValidator">
+            <summary>Validate the get students query.</summary>
+        </member>
+        <member name="M:Arc.CustomApp.Application.Queries.GetStudentsQueryValidator.#ctor">
+            <summary>Creates a new instance of get students query validator.</summary>
+        </member>
         <member name="T:Arc.CustomApp.Application.Queries.GetStudentsQueryHandler">
             <summary>A handler of the query which returns the students data.</summary>
             <param name="repo">A read only repo.</param>
