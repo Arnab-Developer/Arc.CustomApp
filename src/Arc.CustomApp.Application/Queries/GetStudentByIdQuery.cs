@@ -4,6 +4,13 @@
 /// <param name="Id">The id of the student.</param>
 public record GetStudentByIdQuery(int Id) : IRequest<GetStudentByIdQueryResponse>;
 
+/// <summary>Validate the get student by id query.</summary>
+public class GetStudentByIdQueryValidator : AbstractValidator<GetStudentByIdQuery>
+{
+    /// <summary>Creates a new instance of get student by id query validator.</summary>
+    public GetStudentByIdQueryValidator() => RuleFor(r => r.Id).GreaterThan(0);
+}
+
 /// <summary>A handler of the query which returns the student data by id.</summary>
 /// <param name="repo">A read only repo.</param>
 public class GetStudentByIdQueryHandler(IReadOnlyRepo repo)

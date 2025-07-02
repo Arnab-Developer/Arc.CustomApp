@@ -3,6 +3,13 @@
 /// <summary>A query to get the students data.</summary>
 public record GetStudentsQuery : IRequest<GetStudentsQueryResponse>;
 
+/// <summary>Validate the get students query.</summary>
+public class GetStudentsQueryValidator : AbstractValidator<GetStudentsQuery>
+{
+    /// <summary>Creates a new instance of get students query validator.</summary>
+    public GetStudentsQueryValidator() { }
+}
+
 /// <summary>A handler of the query which returns the students data.</summary>
 /// <param name="repo">A read only repo.</param>
 public class GetStudentsQueryHandler(IReadOnlyRepo repo)
