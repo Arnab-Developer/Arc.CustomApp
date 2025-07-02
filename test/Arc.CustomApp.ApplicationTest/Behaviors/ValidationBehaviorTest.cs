@@ -14,7 +14,7 @@ public partial class ValidationBehaviorTest
 
     public ValidationBehaviorTest()
     {
-        _validators = [_validatorMock.Object];
+        _validators = new List<IValidator<IRequest<bool>>> { _validatorMock.Object };
         _validationBehavior = new(_validators);
     }
 }
