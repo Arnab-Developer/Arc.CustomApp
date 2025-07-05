@@ -15,11 +15,13 @@ public partial class ReadOnlyRepoTest
         actualStudent.ShouldBe(expectedStuent);
     }
 
-    [Fact]
-    public async Task GetStudentById_ThrowsException_GivenInvalidId()
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public async Task GetStudentById_ThrowsException_GivenInvalidId(int id)
     {
         // Act
-        Task<Student> func() => _readOnlyRepo.GetStudentById(0, _cancellationToken);
+        Task<Student> func() => _readOnlyRepo.GetStudentById(id, _cancellationToken);
 
         // Assert
         var exception = await func().ShouldThrowAsync<ArgumentException>();
