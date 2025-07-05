@@ -15,7 +15,7 @@ public class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logger) : IE
     /// <param name="exception">The exception to handle.</param>
     /// <param name="cancellationToken">A token that can be used to cancel the 
     /// operation before completion.</param>
-    /// <returns>True if handled otherwise false.</returns>
+    /// <returns>True if the exception can be handled otherwise false.</returns>
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception,
         CancellationToken cancellationToken)
     {
