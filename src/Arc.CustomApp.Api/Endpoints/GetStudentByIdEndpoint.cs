@@ -13,17 +13,7 @@ internal static class GetStudentByIdEndpoint
         CancellationToken token)
     {
         var query = new GetStudentByIdQuery(id);
-        GetStudentByIdQueryResponse queryResponse;
-
-        try
-        {
-            queryResponse = await mediator.Send(query, token);
-        }
-        catch (Exception)
-        {
-            var error = new GetStudentByIdEndpointError("Not found");
-            return TypedResults.NotFound(error);
-        }
+        var queryResponse = await mediator.Send(query, token);
 
         if (string.IsNullOrEmpty(queryResponse.Name) ||
             string.IsNullOrEmpty(queryResponse.Subject))
