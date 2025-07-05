@@ -14,4 +14,15 @@ public partial class ReadOnlyRepoTest
         // Assert
         actualStudent.ShouldBe(expectedStuent);
     }
+
+    [Fact]
+    public async Task GetStudentById_ThrowsException_GivenInvalidId()
+    {
+        // Act
+        Task<Student> func() => _readOnlyRepo.GetStudentById(0, _cancellationToken);
+
+        // Assert
+        var exception = await func().ShouldThrowAsync<ArgumentException>();
+        exception.Message.ShouldBe("Required input id cannot be zero or negative. (Parameter 'id')");
+    }
 }
