@@ -3,5 +3,9 @@
   <PropertyGroup>
     <DocumentationFile>Arnab.CustomApp.Infra.xml</DocumentationFile>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" />
+  </ItemGroup>
 
 </Project>
