@@ -19,6 +19,7 @@
             <param name="cancellationToken">A token that can be used to cancel the 
             operation before completion.</param>
             <returns>A task containing a student data.</returns>
+            <exception cref="T:System.ArgumentException">The id is less than one.</exception>
         </member>
         <member name="T:Arc.CustomApp.Infra.ReadOnlyRepo">
             <summary>A read only repo which returns students data for testing.</summary>
@@ -35,6 +36,7 @@
             <param name="cancellationToken">A token that can be used to cancel the 
             operation before completion.</param>
             <returns>A task containing a student data.</returns>
+            <exception cref="T:System.ArgumentException">The id is less than one.</exception>
         </member>
         <member name="T:Arc.CustomApp.Infra.Student">
             <summary>A student model data.</summary>

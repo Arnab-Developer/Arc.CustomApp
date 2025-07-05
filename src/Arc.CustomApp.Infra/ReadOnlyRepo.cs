@@ -1,4 +1,6 @@
-﻿namespace Arc.CustomApp.Infra;
+﻿using Ardalis.GuardClauses;
+
+namespace Arc.CustomApp.Infra;
 
 /// <summary>A read only repo which returns students data.</summary>
 public interface IReadOnlyRepo
@@ -14,6 +16,7 @@ public interface IReadOnlyRepo
     /// <param name="cancellationToken">A token that can be used to cancel the 
     /// operation before completion.</param>
     /// <returns>A task containing a student data.</returns>
+    /// <exception cref="ArgumentException">The id is less than one.</exception>
     public Task<Student> GetStudentById(int id, CancellationToken cancellationToken);
 }
 
@@ -44,8 +47,10 @@ public class ReadOnlyRepo : IReadOnlyRepo
     /// <param name="cancellationToken">A token that can be used to cancel the 
     /// operation before completion.</param>
     /// <returns>A task containing a student data.</returns>
+    /// <exception cref="ArgumentException">The id is less than one.</exception>
     public async Task<Student> GetStudentById(int id, CancellationToken cancellationToken)
     {
+        Guard.Against.NegativeOrZero(id);
         await Task.Delay(1000, cancellationToken).ConfigureAwait(false);
         var student = new Student(id, $"{id} s3", "Sub3");
         return student;
